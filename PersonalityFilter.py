@@ -81,13 +81,13 @@ def assign_mbti(job_description):
 def loop_through_jobs():
     jobs_with_mbti = []
     rownum = 0
-    with open('glassdoor_jobs - Copy.csv', newline='', encoding='utf-8') as csvfile:
+    with open('v6_150results.csv', newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             # field_value = row['JobTitle']
             # print(field_value)
-            jobs_with_mbti.append(tuple((rownum, row['JobTitle'], row['SalaryEstimate'],
-                                         assign_mbti(row['JobDescription']))))
+            jobs_with_mbti.append(tuple((rownum, row['title'], row['salary'],
+                                         assign_mbti(row['job description']))))
             rownum += 1
     return jobs_with_mbti
 
